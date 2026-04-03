@@ -1,0 +1,68 @@
+name: Portfolio CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    name: Build and Push Portfolio Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: annalevina/portfolio_site:latest
+
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    needs: build_and_push
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Copy docker-compose.production.yml to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "docker-compose.production.yml"
+          target: "portfolio"
+
+      - name: Deploy with SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/portfolio
+            docker compose -f docker-compose.production.yml pull
+            docker compose -f docker-compose.production.yml down
+            docker compose -f docker-compose.production.yml up -d
+
+  notify:
+    name: Send Telegram notification
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Send Telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: "Portfolio успешно задеплоен на сервер!"
