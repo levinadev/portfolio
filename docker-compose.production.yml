@@ -1,0 +1,7 @@
+services:
+  portfolio:
+    image: annalevina/portfolio_site:latest
+    container_name: portfolio-site
+    ports:
+      - "9010:80"
+    restart: always
