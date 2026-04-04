@@ -18,7 +18,9 @@
           <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-light border border-dark btn-sm flex-fill rounded-2 text-dark fw-semibold">Демо</a>
         </div>
         {% else %}
-        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm w-100 rounded-2">GitHub</a>
+        <div class="d-flex gap-2">
+          <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm w-50 rounded-2">GitHub</a>
+        </div>
         {% endif %}
       </div>
     </div>
