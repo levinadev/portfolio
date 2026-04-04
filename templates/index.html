@@ -1,7 +1,115 @@
 {% extends "base.html" %}
 
-{% block title %}Главная — Portfolio{% endblock %}
+{% block title %}Главная - Проекты{% endblock %}
 
 {% block content %}
-    <p>Это главная страница. Тут проекты.</p>
+    <div class="row" id="projects-row">
+
+      <!-- Start - Project Foodgram -->
+      <div class="col-md-4 mb-4 project-item">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/Foodgram.png') }}" class="card-img-top" alt="Foodgram">
+          <div class="card-body">
+            <h5 class="card-title">Foodgram</h5>
+            <p class="card-text">
+              Recipe sharing service with user accounts, favorites, subscriptions, shopping lists, and recipe management. </p>
+            <div class="card-links">
+              <a href="https://github.com/levinadev/foodgram" target="_blank" class="btn btn-primary">GitHub link</a>
+              <a href="https://foodgram.levinadev.ru/" target="_blank" class="btn btn-success">Demo link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Project Foodgram -->
+
+      <!-- Start - Project YaCut -->
+      <div class="col-md-4 mb-4 project-item">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/async-yacut.png') }}" class="card-img-top" alt="YaCut">
+          <div class="card-body">
+            <h5 class="card-title">YaCut</h5>
+            <p class="card-text">
+              Link shortener service for creating short URLs and sharing custom file download links online.
+            </p>
+            <div class="card-links">
+              <a href="https://github.com/levinadev/async-yacut" target="_blank" class="btn btn-primary">GitHub link</a>
+              <a href="https://yacut.levinadev.ru/" target="_blank" class="btn btn-success">Demo link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Project YaCut -->
+
+      <!-- Start - Project QRkot_spreadsheets -->
+      <div class="col-md-4 mb-4 project-item">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/QRkot_spreadsheets.png') }}" class="card-img-top" alt="QRkot_spreadsheets">
+          <div class="card-body">
+            <h5 class="card-title">QRkot</h5>
+            <p class="card-text">
+              Cat charity API with authentication, donations, projects, roles, and Google Sheets reports.
+            </p>
+            <div class="card-links">
+              <a href="https://github.com/levinadev/QRkot_spreadsheets" target="_blank" class="btn btn-primary">GitHub link</a>
+              <a href="https://qrkot.levinadev.ru/docs" target="_blank" class="btn btn-success">Demo link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Project QRkot_spreadsheets -->
+
+      <!-- Start - Project scrapy_parser_pep -->
+      <div class="col-md-4 mb-4 project-item">
+          <div class="card">
+            <img src="{{ url_for('static', filename='images/scrapy_parser_pep.png') }}" class="card-img-top" alt="scrapy_parser_pep">
+            <div class="card-body">
+              <h5 class="card-title">Scrapy Parser PEP</h5>
+              <p class="card-text">
+                Scrapy-based async parser for collecting PEP data and exporting CSV reports.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/levinadev/scrapy_parser_pep" target="_blank" class="btn btn-primary">GitHub link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- End - Project scrapy_parser_pep -->
+
+      <!-- Start - Project room_reservation_spreadsheets -->
+      <div class="col-md-4 mb-4 project-item">
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/room_reservation_spreadsheets.png') }}" class="card-img-top" alt="room_reservation_spreadsheets">
+          <div class="card-body">
+            <h5 class="card-title">Room Reservation</h5>
+            <p class="card-text">
+              FastAPI app for meeting room booking with Google API and spreadsheet integrations.
+            </p>
+            <div class="card-links">
+              <a href="https://github.com/levinadev/room_reservation_spreadsheets" target="_blank" class="btn btn-primary">GitHub link</a>
+              <a href="https://room.levinadev.ru/docs" target="_blank" class="btn btn-success">Demo link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Project room_reservation_spreadsheets -->
+
+      <!-- Start - Project kittygram_final -->
+      <div class="col-md-4 mb-4 project-item">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/kittygram_final.png') }}" class="card-img-top" alt="kittygram_final">
+        <div class="card-body">
+          <h5 class="card-title">Kittygram</h5>
+          <p class="card-text">
+            A pet photo sharing app with Django, DRF, React, PostgreSQL, Docker, and Nginx.
+          </p>
+          <div class="card-links">
+            <a href="https://github.com/levinadev/kittygram_final" target="_blank" class="btn btn-primary">GitHub link</a>
+            <a href="https://kittygram.levinadev.ru/" target="_blank" class="btn btn-success">Demo link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- End - Project kittygram_final -->
+
+    </div>
 {% endblock %}
