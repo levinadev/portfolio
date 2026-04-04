@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block head_extra %}{% endblock %}
 </head>
-<body>
-      <header class="border-bottom border-secondary-subtle sticky-top">
+<body class="d-flex flex-column min-vh-100">
+      <header class="border-bottom border-secondary-subtle sticky-top bg-body">
         <nav class="navbar navbar-expand-md">
           <div class="container">
             <a class="navbar-brand fw-semibold" href="{{ url_for('index') }}">Anna Levina</a>
@@ -39,7 +39,7 @@
         </nav>
       </header>
 
-    <main>
+    <main class="flex-grow-1">
         <div class="container py-4">
             {% block content %}{% endblock %}
         </div>
