@@ -1,18 +1,24 @@
 {% macro project_card(project) %}
-<div class="col-md-4 mb-4 project-item">
-  <div class="card">
-    <img
-      src="{{ url_for('static', filename='images/' ~ project.image) }}"
-      class="card-img-top"
-      alt="{{ project.img_alt | default(project.title) }}"
-    >
-    <div class="card-body">
-      <h5 class="card-title">{{ project.title }}</h5>
-      <p class="card-text">{{ project.description }}</p>
-      <div class="card-links">
-        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub</a>
+<div class="col-12 col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
+  <div class="card h-100 w-100 border-secondary-subtle shadow-sm rounded-4 overflow-hidden d-flex flex-column">
+    <div class="ratio ratio-16x9 bg-body-secondary">
+      <img
+        src="{{ url_for('static', filename='images/' ~ project.image) }}"
+        class="object-fit-cover"
+        alt="{{ project.img_alt | default(project.title) }}"
+      >
+    </div>
+    <div class="card-body d-flex flex-column flex-grow-1 px-3 pt-3 pb-3">
+      <h5 class="card-title fw-bold mb-2">{{ project.title }}</h5>
+      <p class="card-text flex-grow-1 small text-body-secondary mb-3 lh-sm">{{ project.description }}</p>
+      <div class="mt-auto w-100">
         {% if project.demo %}
-        <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Demo</a>
+        <div class="d-flex gap-2">
+          <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm flex-fill rounded-3">GitHub</a>
+          <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-light border border-dark btn-sm flex-fill rounded-3 text-dark fw-semibold">Демо</a>
+        </div>
+        {% else %}
+        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm w-100 rounded-3">GitHub</a>
         {% endif %}
       </div>
     </div>
