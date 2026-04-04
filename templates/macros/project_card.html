@@ -1,0 +1,21 @@
+{% macro project_card(project) %}
+<div class="col-md-4 mb-4 project-item">
+  <div class="card">
+    <img
+      src="{{ url_for('static', filename='images/' ~ project.image) }}"
+      class="card-img-top"
+      alt="{{ project.img_alt | default(project.title) }}"
+    >
+    <div class="card-body">
+      <h5 class="card-title">{{ project.title }}</h5>
+      <p class="card-text">{{ project.description }}</p>
+      <div class="card-links">
+        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub</a>
+        {% if project.demo %}
+        <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Demo</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
