@@ -1,6 +1,6 @@
 {% macro project_card(project) %}
-<div class="col-12 col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
-  <div class="card h-100 w-100 border-secondary-subtle shadow-sm rounded-4 overflow-hidden d-flex flex-column">
+<div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+  <div class="card h-100 w-100 border-secondary-subtle shadow-sm rounded-2 overflow-hidden d-flex flex-column">
     <div class="ratio ratio-16x9 bg-body-secondary">
       <img
         src="{{ url_for('static', filename='images/' ~ project.image) }}"
@@ -14,11 +14,11 @@
       <div class="mt-auto w-100">
         {% if project.demo %}
         <div class="d-flex gap-2">
-          <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm flex-fill rounded-3">GitHub</a>
-          <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-light border border-dark btn-sm flex-fill rounded-3 text-dark fw-semibold">Демо</a>
+          <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm flex-fill rounded-2">GitHub</a>
+          <a href="{{ project.demo }}" target="_blank" rel="noopener noreferrer" class="btn btn-light border border-dark btn-sm flex-fill rounded-2 text-dark fw-semibold">Демо</a>
         </div>
         {% else %}
-        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm w-100 rounded-3">GitHub</a>
+        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm w-100 rounded-2">GitHub</a>
         {% endif %}
       </div>
     </div>

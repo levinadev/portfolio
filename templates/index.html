@@ -4,9 +4,13 @@
 {% block title %}Главная - Проекты{% endblock %}
 
 {% block content %}
-<div class="row" id="projects-row">
-  {% for project in projects %}
-    {{ project_card(project) }}
-  {% endfor %}
+<div class="row justify-content-center">
+  <div class="col-12 col-xl-11 col-xxl-10">
+    <div class="row g-3 g-lg-4" id="projects-row">
+      {% for project in projects %}
+        {{ project_card(project) }}
+      {% endfor %}
+    </div>
+  </div>
 </div>
 {% endblock %}
