@@ -28,18 +28,10 @@
             <div class="collapse navbar-collapse" id="mainNav">
               <ul class="navbar-nav ms-auto gap-2 align-items-stretch align-items-md-center" id="portfolio-tabs">
                 <li class="nav-item">
-                  <a
-                    class="nav-link rounded-2 px-3{% if request.endpoint == 'index' %} active bg-secondary{% endif %}"
-                    {% if request.endpoint == 'index' %}aria-current="page"{% endif %}
-                    href="{{ url_for('index') }}"
-                  >Проекты</a>
+                  <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Проекты</a>
                 </li>
                 <li class="nav-item">
-                  <a
-                    class="nav-link rounded-2 px-3{% if request.endpoint == 'about' %} active bg-secondary{% endif %}"
-                    {% if request.endpoint == 'about' %}aria-current="page"{% endif %}
-                    href="{{ url_for('about') }}"
-                  >Обо мне</a>
+                  <a class="nav-link" href="{{ url_for('about') }}">Обо мне</a>
                 </li>
               </ul>
             </div>
